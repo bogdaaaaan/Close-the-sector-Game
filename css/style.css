@@ -1,3 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: blue;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+.button {
+    color: white;
+    font-size: 22px;
+    font-family: sans-serif;
+    outline: none;
+    user-select: none;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(5, 51, 1);
+    width: 200px;
+    height: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(7, 73, 1);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: white;
+}
+
+main {
+    height: 70vh;
+}
+
+footer {
+    margin: 0 auto;
+    width: 80%;
+    height: 20vh;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+    padding: 0 15px;
+    height: 90%;
+}
+
+.game-screen {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.field {
+    width: 100px;
+    font-size: 32px;
+    display: grid;
+    grid-gap: 10px;
+}
+
+.field-item {
+    background-color: rgb(61, 61, 61);
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    text-align: center;
+    border: 1px solid grey;
+}
+
+.field-item__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+
+.field-item__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+
+.number-checkbox {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.turn {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    font-size: 32px;
+}
+
+.roll-result {
+    font-size: 32px;
 }
