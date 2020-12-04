@@ -125,3 +125,14 @@ footer p {
 .roll-result {
     font-size: 32px;
 }
+
+.roll-animation  {
+    position: absolute;
+    top: 15vh;
+    left: 58%;
+    display: none;
+}
+
+.roll-animation.active {
+    display: block;
+}

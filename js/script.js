@@ -113,8 +113,8 @@ const startNextTurn = async () => {
             gameField[next_turn[0]-1] = 0;
             gameField[next_turn[1]-1] = 0;
             console.log('Taking a break...');
-            await sleep(5000);
-            console.log('Two second later');
+            await sleep(3000);
+            console.log('Three second later');
         } else {
             iter = !iter;
         }
@@ -147,6 +147,14 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function rollClick() {
+    document.querySelector('.roll-animation').classList.add('active');
+    setTimeout(()=> {
+        document.querySelector('.roll-animation').classList.remove('active');
+    }, 1000);
+   
+}
+
 window.onclick = event => {
     if (event.target.classList.contains('roll-button')) {
         let numbers = rollTheDice();
@@ -156,16 +164,20 @@ window.onclick = event => {
             currentRollResult = numbers[0];
         }
         console.log(currentRollResult);
+        
+        rollClick();
+
         document.querySelector('.roll-result-number').innerHTML= (currentRollResult);
         witchCanBeChecked(currentRollResult);
         let endgame = checkForEndGame();
         if(endgame !== false) {
-            alert('endgame score = ' + endgame);
+            alert('last roll = '+currentRollResult +'; endgame score = ' + endgame);
             if (counter === 1) {
                 playerOneScore = endgame;
             } else {
                 playerTwoScore = endgame;
                 showEndResult();
+                location.reload();
             }
             startNextTurn();
         }
@@ -187,13 +199,12 @@ window.onclick = event => {
 
 const showEndResult = () => {
     if (playerOneScore < playerTwoScore) {
-        alert('Player One Wins!');
+        alert('Player One Wins!' + ' score is: Player1 = ' + playerOneScore + '; Player2 = ' + playerTwoScore);
     } else if (playerOneScore === playerTwoScore) {
-        alert('Draw!');
+        alert('Draw!'+' score is: Player1 = ' + playerOneScore + '; Player2 = ' + playerTwoScore);
     } else if (playerOneScore > playerTwoScore) {
-        alert('Player Two Wins!');
+        alert('Player Two Wins! '+ ' score is: Player1 = ' + playerOneScore + '; Player2 = ' + playerTwoScore);
     }
-   //location.reload();
 }
 
 const checkForEndGame = () => {
